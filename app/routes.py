@@ -9,9 +9,10 @@ from app.models import User
 @app.route('/index')
 def index():
     if current_user.is_authenticated:
-        return render_template('index.html', username=current_user.username)
+        username = current_user.username
     else:
-        return render_template('index.html')
+        username = None
+    return render_template('index.html', username=username)
 
 
 @app.route('/login', methods=['POST', 'GET'])
