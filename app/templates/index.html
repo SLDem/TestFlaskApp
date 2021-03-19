@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if username %}
+    <p>Logged in as {{ username }}</p>
+    <h1>I am the home page.</h1>
+{% else %}
+    <p>Login to view home page</p>
+{% endif %}
+
+{% endblock %}

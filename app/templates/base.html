@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>TestFlaskApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% else %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
