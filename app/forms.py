@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, ValidationError, EqualTo
-
-from app.models import User
+from wtforms.fields.html5 import DateTimeLocalField
+from wtforms.validators import DataRequired, EqualTo
 
 
 class LoginForm(FlaskForm):
@@ -18,3 +17,14 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Register')
 
 
+class ToDoListForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    description = StringField('Description')
+    submit = SubmitField('Add')
+
+
+class TaskForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    description = StringField('Description')
+    deadline = DateTimeLocalField('Deadline', format='%Y-%m-%dT%H:%M')
+    submit = SubmitField('Add')

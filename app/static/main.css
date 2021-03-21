@@ -3,6 +3,14 @@
     margin: 0;
 }
 
+body {
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
 .navbar ul{
     list-style: none;
     display: flex;
@@ -13,4 +21,10 @@
 
 .navbar ul li {
     color: #E14C2C;
+}
+
+.task {
+    border: 1px solid purple;
+    width: fit-content;
+    padding: 10px;
 }

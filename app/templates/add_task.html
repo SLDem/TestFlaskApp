@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<p>Add task to {{ todolist }}</p>
+
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(size=32) }}
+    </p>
+    <p>
+        {{ form.description.label }}
+        {{ form.description(size=64) }}
+    </p>
+    <p>
+        {{ form.deadline.label }}
+        {{ form.deadline }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+</form>
+{% endblock %}

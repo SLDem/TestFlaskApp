@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>{{ todolist }}</p><a href="{{ url_for('remove_todolist', id=todolist.id) }}">Remove List</a>
+<br>
+<br>
+{% for task in tasks %}
+    <div class="task">
+        <p>{{ task.title }}</p><br>
+        <p style="color: grey;">{{ task.description }}</p>
+        <p style="color: grey">{{ task.deadline }}</p>
+        <a href="{{ url_for('remove_task', id=task.id) }}">Remove</a><br>
+        {% if task.is_completed %}
+            <a href="{{ url_for('change_task_status', id=task.id) }}">Complete</a>
+        {% else %}
+            <a href="{{ url_for('change_task_status', id=task.id) }}">Uncomplete</a>
+        {% endif %}
+    </div>
+    <br>
+{% endfor %}
+<br>
+______
+<br>
+<a href="{{ url_for('add_task', id=todolist.id) }}">Add a task.</a>
+{% endblock %}
